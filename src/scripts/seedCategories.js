@@ -1,6 +1,6 @@
 require("dotenv").config();
 const connectDB = require("../config/db"); // Import kết nối database
-const Category = require("../modules/category/category.model");
+const Category = require("./modules/category/category.model");
 const slugify = require("slugify");
 
 // Sample category data
