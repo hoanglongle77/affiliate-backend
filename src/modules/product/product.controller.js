@@ -1,4 +1,3 @@
-const { validationResult } = require("express-validator");
 const productService = require("./product.service");
 
 exports.getProducts = async (req, res) => {
@@ -11,10 +10,6 @@ exports.getProducts = async (req, res) => {
 };
 
 exports.getProductById = async (req, res) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(422).json({ errors: errors.array() });
-  }
   const id = req.params.id;
   try {
     const product = await productService.getProductById(id);
@@ -28,11 +23,6 @@ exports.getProductById = async (req, res) => {
 };
 
 exports.createProduct = async (req, res) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(422).json({ errors: errors.array() });
-  }
-
   const product = req.body;
   try {
     const newProduct = await productService.createProduct(product);
