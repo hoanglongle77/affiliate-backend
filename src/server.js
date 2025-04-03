@@ -6,6 +6,7 @@ const helmet = require("helmet");
 const connectDB = require("./config/db");
 const errorHandler = require("./middlewares/errorHandler");
 const productRoutes = require("./modules/product/product.routes");
+const categoryRoutes = require("./modules/category/category.routes");
 const app = express();
 
 // 1. Database connection
@@ -22,6 +23,7 @@ app.use(errorHandler);
 
 // 4.API Routes
 app.use("/api/products", productRoutes);
+app.use("/api/categories", categoryRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

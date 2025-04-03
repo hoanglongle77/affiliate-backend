@@ -1,18 +1,21 @@
-const productRepository = require("./product.repository");
+const ProductRepository = require("./product.repository");
 
 exports.getProducts = async () => {
-  return await productRepository.findAll();
+  return await ProductRepository.getAllProducts();
 };
 
 exports.getProductById = async (id) => {
-  return await productRepository.findById(id);
+  return await ProductRepository.getProductById(id);
 };
+
 exports.createProduct = async (product) => {
-  return await productRepository.create(product);
+  return await ProductRepository.createProduct(product);
 };
+
 exports.updateProductById = async (id, updateData) => {
-  return await productRepository.updateById(id, updateData);
+  return await ProductRepository.updateProduct(id, updateData);
 };
+
 exports.deleteProductById = async (id) => {
-  return await productRepository.deleteById(id);
+  return await ProductRepository.deleteProduct(id);
 };

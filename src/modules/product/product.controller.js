@@ -1,8 +1,8 @@
-const productService = require("./product.service");
+const ProductService = require("./product.service");
 
 exports.getProducts = async (req, res) => {
   try {
-    const products = await productService.getProducts();
+    const products = await ProductService.getProducts();
     res.status(200).json(products);
   } catch (error) {
     res.status(500).json({ message: "Error retrieving products", error });
@@ -12,7 +12,7 @@ exports.getProducts = async (req, res) => {
 exports.getProductById = async (req, res) => {
   const id = req.params.id;
   try {
-    const product = await productService.getProductById(id);
+    const product = await ProductService.getProductById(id);
     if (!product) {
       return res.status(404).json({ message: "Product not found" });
     }
@@ -25,7 +25,7 @@ exports.getProductById = async (req, res) => {
 exports.createProduct = async (req, res) => {
   const product = req.body;
   try {
-    const newProduct = await productService.createProduct(product);
+    const newProduct = await ProductService.createProduct(product);
     res.status(201).json(newProduct);
   } catch (error) {
     res.status(500).json({ message: "Error creating product", error });
@@ -36,7 +36,7 @@ exports.updateProductById = async (req, res) => {
   const id = req.params.id;
   const updateData = req.body;
   try {
-    const updatedProduct = await productService.updateProductById(
+    const updatedProduct = await ProductService.updateProductById(
       id,
       updateData
     );
@@ -52,7 +52,7 @@ exports.updateProductById = async (req, res) => {
 exports.deleteProductById = async (req, res) => {
   const id = req.params.id;
   try {
-    const deletedProduct = await productService.deleteProductById(id);
+    const deletedProduct = await ProductService.deleteProductById(id);
     if (!deletedProduct) {
       return res.status(404).json({ message: "Product not found" });
     }

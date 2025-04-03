@@ -8,7 +8,11 @@ const ProductSchema = new mongoose.Schema(
     price: { type: Number, required: true },
     stock: { type: Number, required: true },
     description: { type: String },
-    category: { type: String, required: true },
+    category: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Category",
+      required: true,
+    },
     brand: { type: String },
     images: [{ type: String }],
     affiliateLinks: [{ platform: String, url: String }],

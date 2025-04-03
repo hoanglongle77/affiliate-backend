@@ -8,7 +8,6 @@ const {
 } = require("./product.controller");
 const router = express.Router();
 
-// Define routes for product operations
 router.get("/", getProducts); // Get all products
 router.get("/:id", getProductById); // Get a product by ID
 router.post("/", createProduct); // Create a new product
