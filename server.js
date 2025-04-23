@@ -3,10 +3,10 @@ const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
 const helmet = require("helmet");
-const connectDB = require("./config/db");
-const errorHandler = require("./middlewares/errorHandler");
-const productRoutes = require("./modules/product/product.routes");
-const categoryRoutes = require("./modules/category/category.routes");
+const connectDB = require("./src/config/db");
+const errorHandler = require("./src/middlewares/errorHandler");
+const productRoutes = require("./src/modules/product/product.routes");
+const categoryRoutes = require("./src/modules/category/category.routes");
 const app = express();
 
 // 1. Database connection
